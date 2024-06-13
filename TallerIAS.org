@@ -42,21 +42,28 @@ cual puede activar usando M-x Latex-mode RET
 Una vez activado el modo latex el siguiente código recibe colores
 sobre las palabras clave.
 
-\begin{table}
-  \caption{Instrucciones Maquina IAS}
-  
-  \begin{tabular}{|cccc|}
-    \hline
-    Opcode   & Opcode Hex &  Simbolo          & RTL \\ \hline
-    00001010 & 0xA        &  LOAD MQ          & $[AC]\leftarrow[MQ]$\\
-    00001001 & 0x9        &  LOAD MQ, M(X)    & $[MQ]\leftarrow[X]$\\
-    00100001 & 0x21       &  STOR M(X)        & $[X]\leftarrow[AC]$\\
-    00000010 & 0x02       &  LOAD M(X)        & $[AC]\leftarrow[X]$\\
-    00000011 & 0x03       &  LOAD |M(X)|      & $[AC]\leftarrow|[X]|$\\
-    00000100 & 0x04       &  LOAD -|M(X)|     & $[AC]\leftarrow-|[X]|$\\
-    \hline
-    
-  \end{tabular}
+\begin{table}[h]
+\caption{Instrucciones de la Máquina IAS}
+\begin{tabular}{|c|c|c|l|}
+\hline
+Opcode & Opcode Hex & Símbolo & RTL \\
+\hline
+00001010 & 0x0A & LOAD MQ & $[AC]\leftarrow[MQ]$ \\
+00001001 & 0x09 & LOAD MQ, M(X) & $[MQ]\leftarrow[X]$ \\
+00100001 & 0x21 & STOR M(X) & $[X]\leftarrow[AC]$ \\
+00000010 & 0x02 & LOAD M(X) & $[AC]\leftarrow[X]$ \\
+00000011 & 0x03 & LOAD |M(X)| & $[AC]\leftarrow|[X]|$ \\
+00000100 & 0x04 & LOAD -|M(X)| & $[AC]\leftarrow-|[X]|$ \\
+00000101 & 0x05 & ADD M(X) & $[AC]\leftarrow[AC] + [X]$ \\
+00000111 & 0x07 & ADD IM(X)I & $[AC]\leftarrow[AC] + \text{IM}(X)I$ \\
+00000110 & 0x06 & SUB M(X) & $[AC]\leftarrow[AC] - [X]$ \\
+00001000 & 0x08 & SUB IM(X)I & $[AC]\leftarrow[AC] - \text{IM}(X)I$ \\
+00001011 & 0x0B & MUL M(X) & $[AC]\leftarrow[AC] \times [X];\, [MQ]\leftarrow\text{bits más significativos}$ \\
+00001100 & 0x0C & DIV M(X) & Dividir AC por M(X); colocar el cociente en MQ y el resto en AC \\
+00010100 & 0x14 & LSH & $[AC]\leftarrow[AC] \times 2;\, \text{desplazar una posición a la izquierda}$ \\
+00010101 & 0x15 & RSH & $[AC]\leftarrow[AC] \div 2;\, \text{desplazar una posición a la derecha}$ \\
+\hline
+\end{tabular}
 \end{table}
 
 
